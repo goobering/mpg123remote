@@ -1,3 +1,6 @@
+# This thing is dumb as a box of rocks. It just flings pretty much anything
+# at mpg123 and lets it raise whatever errors it likes. It does seem to work, however. 
+
 import pipes
 import tempfile
 import os
