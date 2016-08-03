@@ -14,14 +14,14 @@ def load(pathtofile):
     runcommand('echo load ' + pathtofile)
 
 # LOADPAUSED/LP <trackname>: load but do not start playing resource <trackname>
-def loadPaused(pathtofile):
+def loadpaused(pathtofile):
     runcommand('echo loadpaused ' + pathtofile)
         
 # LOADLIST <entry> <url>: load a playlist from given <url>, and display its entries, 
 # optionally load and play one of these specificed by the integer <entry> 
 # (<0: just list, 0: play last track, >0:play track with that position in list)
 # Defaults to 1/play list from track in position 1
-def loadList(pathtofile, entry = 1):  
+def loadlist(pathtofile, entry = 1):  
     runcommand('echo loadlist ' + str(entry) + ' ' + pathtofile)
         
 # PAUSE/P: pause playback
