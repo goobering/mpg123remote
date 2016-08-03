@@ -8,27 +8,18 @@ __fifo.close()
 
 # LOAD/L <trackname>: load and start playing resource <trackname>
 def load(pathtofile):
-    if(os.path.isfile(pathtofile)):
-        runcommand('echo load ' + pathtofile)
-    else:
-        print("Path is invalid.")
+    runcommand('echo load ' + pathtofile)
 
 # LOADPAUSED/LP <trackname>: load but do not start playing resource <trackname>
 def loadPaused(pathtofile):
-    if(os.path.isfile(pathtofile)):
-        runcommand('echo loadpaused ' + pathtofile)
-    else:
-        print("Path is invalid.")
+    runcommand('echo loadpaused ' + pathtofile)
         
 # LOADLIST <entry> <url>: load a playlist from given <url>, and display its entries, 
 # optionally load and play one of these specificed by the integer <entry> 
 # (<0: just list, 0: play last track, >0:play track with that position in list)
 # Defaults to 1/play list from track in position 1
 def loadList(pathtofile, entry = 1):  
-    if(os.path.isfile(pathtofile)):
-        runcommand('echo loadlist ' + str(entry) + ' ' + pathtofile)
-    else:
-        print("Path is invalid.")
+    runcommand('echo loadlist ' + str(entry) + ' ' + pathtofile)
         
 # PAUSE/P: pause playback
 def pause():
@@ -42,8 +33,7 @@ def stop():
 # jump to mpeg frame <frame> or change position by offset,
 # same in seconds if number followed by "s"
 def jump(jumpvalue):
-    if not jumpvalue == "":
-        runcommand('echo jump ' + str(jumpvalue))
+    runcommand('echo jump ' + str(jumpvalue))
         
 # VOLUME/V <percent>: set volume in % (0..100...); float value
 def volume(volumevalue):
@@ -51,19 +41,16 @@ def volume(volumevalue):
         
 # RVA (Relative Volume Adjustment) off|(mix|radio)|(album|audiophile): set rva mode
 def rva(rvavalue):
-    if((not rvavalue == "") and (rvavalue in ['off', 'mix', 'radio', 'album', 'audiophile'])): 
-        runcommand('echo rva ' + rvavalue)
+    runcommand('echo rva ' + rvavalue)
         
 # EQ/E <channel> <band> <value>: set equalizer value for frequency band 0 to 31
 # on channel 1 (left) or 2 (right) or 3 (both). Function defaults to 3/both.
 def eq(band, value, channel = 3):
-    if(not ((band == "") or (value == ""))):
-        runcommand('echo ' + str(channel) + ' ' + str(band) + ' ' + str(value))
+    runcommand('echo ' + str(channel) + ' ' + str(band) + ' ' + str(value))
         
 # EQFILE <filename>: load EQ settings from a file
 def eqfile(pathtofile):
-    if(os.path.isfile(pathtofile)):
-        runcommand('echo eqfile ' + pathtofile)
+    runcommand('echo eqfile ' + pathtofile)
 
 # SHOWEQ: show all equalizer settings (as <channel> <band> <value> lines in a SHOWEQ block (like TAG))
 def showeq():
@@ -71,8 +58,7 @@ def showeq():
         
 # SEEK/K <sample>|<+offset>|<-offset>: jump to output sample position <samples> or change position by offset
 def seek(seekvalue):        
-    if(not seekvalue == ""):
-        runcommand('echo seek ' + seekvalue)
+    runcommand('echo seek ' + seekvalue)
         
 # SCAN: scan through the file, building seek index        
 def scan():
@@ -84,13 +70,11 @@ def sample():
 
 # SEQ <bass> <mid> <treble>: simple eq setting...   
 def seq(seqvalue):
-    if((not seqvalue == "") and (seqvalue in ["bass", "mid", "treble"])):
-        runcommand('echo ' + seqvalue)
+    runcommand('echo ' + seqvalue)
 
 # PITCH <[+|-]value>: adjust playback speed (+0.01 is 1 % faster)
 def pitch(pitchvalue):
-    if((not seqvalue == "") and (seqvalue.startswith('+') or (seqvalue.startswith('-')))):
-        runcommand('echo ' + pitchvalue)
+    runcommand('echo ' + pitchvalue)
         
 # SILENCE: be silent during playback (meaning silence in text form)
 def silence():
