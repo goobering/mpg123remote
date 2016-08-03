@@ -5,54 +5,38 @@ import time
 import mpg123wrapper
 import os
 
+# Get fifo path from mpg123wrapper
 fifo = mpg123wrapper.fifo
-print(fifo)
 
-#from subprocess import call
-p = subprocess.Popen(["mpg123", "-R", "--fifo", fifo, "--buffer", "1024"])
+# Create an instance of mpg123 in remote/fifo mode
+p = subprocess.Popen(["mpg123", "-R", "--fifo", fifo])
 
-print("sleep 5")
-time.sleep(5)
-print("load")
+# Load and play a single file
 mpg123wrapper.load('/home/pi/Music/1.mp3')
-print("sleep 5")
+
+# Let it run for 5 seconds
 time.sleep(5)
-print("jump 30")
+
+# Jump to 120 seconds
 mpg123wrapper.jump('120s')
-print("sleep 3")
+
+# Let it play for 3 seconds
 time.sleep(3)
-print("pause")
+
+# Pause playback
 mpg123wrapper.pause()
-print("sleep 3")
+
+# Wait 3 seconds
 time.sleep(3)
-print("pause")
+
+# Unpause/continue playing
 mpg123wrapper.pause()
-print("sleep 3")
+
+# Let it play for 3 seconds
 time.sleep(3)
-print("volume 50")
-mpg123wrapper.volume(50)
-print("sleep 3")
-time.sleep(3)
-print("volume 100")
-mpg123wrapper.volume(100)
-print("sleep 3")
-time.sleep(3)
-print("stop")
+
+# Stop playback
 mpg123wrapper.stop()
-print("sleep 3")
-time.sleep(3)
 
-print(mpg123wrapper.fifo)
-print(os.path.isfile(mpg123wrapper.fifo))
-
+# Quit mpg123
 mpg123wrapper.quit()
-
-
-
-#mpg123wrapper.closefile()
-#p.kill()
-
-
-
-
-
