@@ -11,6 +11,9 @@ fifo = mpg123wrapper.fifo
 # Create an instance of mpg123 in remote/fifo mode
 p = subprocess.Popen(["mpg123", "-R", "--fifo", fifo])
 
+# Allow a few seconds to start mpg123
+time.sleep(3)
+
 # Load and play a single file
 mpg123wrapper.load('/home/pi/Music/1.mp3')
 
