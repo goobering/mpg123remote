@@ -41,5 +41,8 @@ time.sleep(3)
 # Stop playback
 mpg123wrapper.stop()
 
+# Load playlist
+mpg123wrapper.loadlist('/home/pi/Music/testplaylist', 0)
+
 # Quit mpg123
 mpg123wrapper.quit()
